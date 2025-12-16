@@ -20,7 +20,7 @@
   font-weight: 500;
 }
 
-.pts {
+.pts, .alert {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,7 +36,7 @@
 
 .cont {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(6, 200px);
   gap: 40px;
   justify-content: center;
   align-items: center;
@@ -74,4 +74,14 @@
   border-radius: 10px;
   width: 150px;
   text-align: center;
+}
+
+.alert {
+  margin-top: 20px;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.alert.show {
+  opacity: 1;
 }
