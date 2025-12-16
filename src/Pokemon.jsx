@@ -25,24 +25,31 @@ function Pokemon({ handleScore, score }) {
             }
         }
 
-        // const rearrange = () => {
-        //     const shuffled = [...pokemon]
-        //     for (let i  = shuffled.length - 1; i > 0; i--) {
-        //         const j = Math.floor(Math.random() * (i + 1))
-        //         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-        //     }
-        //     setPokemon(shuffled)
-        // }
+
 
         fetchPokemon()
-        // rearrange()
 
     }, [])
+
+    const rearrange = () => {
+    setPokemon((prev) => {
+        const shuffled = [...prev];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    });
+    };
 
     const correctScore = (id) => {
         if (clicked.has(id)) {
             console.log('This was already pressed')
             handleScore(0)
+            const newSet = new Set(clicked)
+            newSet.clear()
+            setClicked(newSet)
+            return newSet
         }
 
         else { 
@@ -54,8 +61,8 @@ function Pokemon({ handleScore, score }) {
             newSet.add(id)
             return newSet
         })
-        console.log(clicked)
-        console.log(`Pokemon id -> ${id}, Score -> ${score}`)
+
+        rearrange()
     }
 
     return(

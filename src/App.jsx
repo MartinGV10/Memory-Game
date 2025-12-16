@@ -4,7 +4,7 @@ import Pokemon from './Pokemon'
 
 function App() {
   const [score, setScore] = useState(0)
-  const [high, setHigh] = useState(2)
+  const [high, setHigh] = useState(0)
   const [view, setView] = useState(false)
 
   const handleHigh = () => {

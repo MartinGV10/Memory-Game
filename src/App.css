@@ -73,6 +73,7 @@
   padding: 3px;
   border-radius: 10px;
   width: 150px;
+  box-shadow: 0 0 7px black;
   text-align: center;
 }
 
